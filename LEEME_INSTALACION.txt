@@ -1,0 +1,35 @@
+ZARAGOZA AIRE — PWA v0.6 (21/11/2026)
+
+CONTENIDO
+- index.html: interfaz basada en la v0.5.1 aceptada.
+- manifest.webmanifest: metadatos de instalación.
+- sw.js: permite abrir la interfaz en ausencia de red, pero NUNCA almacena las mediciones.
+- icon-192.png e icon-512.png: iconos de instalación.
+
+PUBLICACIÓN SIN SERVIDOR DE APLICACIÓN (GITHUB PAGES)
+1. Crear un repositorio público nuevo en GitHub; por ejemplo, zaragoza-aire.
+2. Subir LOS CINCO archivos del interior de esta carpeta a la RAÍZ del repositorio (no subir solo el ZIP).
+3. En el repositorio, Settings > Pages > Build and deployment > Deploy from a branch.
+4. Seleccionar rama main, carpeta /(root), guardar.
+5. Cuando GitHub complete la publicación, abrir https://USUARIO.github.io/zaragoza-aire/ (sustituyendo USUARIO y el nombre del repositorio).
+6. En Android (Chrome): menú > Añadir a pantalla de inicio / Instalar aplicación.
+   En iPhone (Safari): Compartir > Añadir a pantalla de inicio.
+   En Edge escritorio: menú > Aplicaciones > Instalar este sitio como aplicación.
+
+PRUEBA LOCAL EN EL ORDENADOR
+Opcional si tienes Python instalado:
+1. Abrir una terminal en la carpeta que contiene index.html.
+2. Ejecutar: python -m http.server 8000
+3. Abrir en Edge: http://localhost:8000/
+4. La instalación vía localhost puede funcionar; si no, comprobar en HTTPS.
+
+PRECAUCIONES
+- Abrir index.html mediante doble clic permite revisar la interfaz, pero NO instalar la PWA.
+- La API del Ayuntamiento y el mapa de calles requieren red, y CORS debe permitir el origen del sitio publicado.
+- La caché es solo de la interfaz, NO de las mediciones, para evitar mostrar contaminación antigua como actual.
+- La cartografía de calles se sigue sirviendo mediante la vista incrustada de OpenStreetMap.
+- GitHub Pages en repositorio público expone públicamente todos los archivos que subas. No incluir datos privados ni claves.
+- No se ha publicado el repositorio ni probado la instalación en un teléfono.
+
+REGRESIÓN MANUAL: 8 estaciones, Renovales sin observaciones, selección mapa/lista,
+indicador, fecha de mediciones, ambas vistas, actualización, carga JSON.
