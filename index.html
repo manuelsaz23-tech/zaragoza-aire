@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c4668"><meta name="description" content="Calidad del aire en Zaragoza con datos municipales por estación."><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png"><link rel="apple-touch-icon" href="./icon-192.png"><title>Zaragoza Aire · PWA v0.8.3</title>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c4668"><meta name="description" content="Calidad del aire en Zaragoza con datos municipales por estación."><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png"><link rel="apple-touch-icon" href="./icon-192.png"><title>Zaragoza Aire · PWA v0.9.1</title>
 <style>
 :root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#172d3a;background:#f2f6f8}*{box-sizing:border-box}body{margin:0}header{background:#0c4668;color:white;padding:24px max(18px,calc((100vw - 1050px)/2))}h1{font-size:1.7rem;margin:0 0 5px}header p{margin:0;color:#d7e9f4}main{max-width:1050px;padding:20px;margin:auto}.panel{background:#fff;border-radius:14px;padding:19px;margin-bottom:16px;box-shadow:0 3px 15px #193a5110}h2{margin-top:0;font-size:1.22rem}label{display:block;font-weight:650;margin-bottom:7px}select,button,input[type=file]{font:inherit}select{padding:11px;border:1px solid #bdcbd5;border-radius:9px;width:100%;background:#fff}button{background:#0c6687;color:#fff;padding:11px 16px;border:0;border-radius:9px;cursor:pointer;font-weight:650}button:hover{background:#075270}button:focus-visible,.map-point:focus-visible{outline:3px solid #f0ad39;outline-offset:2px}button:disabled{opacity:.6;cursor:wait}.controls{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.controls>div{flex:1;min-width:220px}.meta{color:#566a76;font-size:.9rem}.status{padding:12px;border-radius:9px;background:#e8f2f9;margin:14px 0}.status.warn{background:#fff1d6;color:#6d4804}.status.error{background:#fde8e7;color:#882b23}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}.metric{border:1px solid #dce7ed;border-radius:12px;padding:15px}.metric .value{font-size:1.8rem;font-weight:700;margin:6px 0}.metric .unit{font-size:.8rem;color:#647681}.metric small{display:block;color:#596b76;line-height:1.5}.empty{color:#637681}.footer{color:#667884;font-size:.82rem;line-height:1.55}details{margin-top:12px}summary{cursor:pointer;color:#0b5578;font-weight:600}a{color:#0b5578}#stationsInfo{font-size:.86rem;color:#506575;margin-top:9px}.kpi{border-radius:12px;padding:15px;border:1px solid #dce7ed;display:flex;align-items:center;gap:12px}.kpi .dot{height:20px;width:20px;flex:0 0 20px;border-radius:100%;background:#87929b;border:2px solid #ffffff;box-shadow:0 0 0 1px #b7bec5}.kpi strong{font-size:1.15rem}.map{height:360px;border:1px solid #cbd8df;border-radius:12px;overflow:hidden;position:relative;background:linear-gradient(125deg,#e8f3f3,#f5f0e4)}.map svg{width:100%;height:100%;display:block}.map-point{cursor:pointer;stroke:#fff;stroke-width:2.5}.map-point.active{stroke:#172d3a;stroke-width:4}.map-caption{font-size:12px;fill:#173c51;font-weight:650;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round;pointer-events:none}.map-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;color:#506575}.map-legend span{display:inline-flex;gap:5px;align-items:center}.mini-dot{width:11px;height:11px;border-radius:100%;display:inline-block;border:1px solid #87929b}.map-actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-top:9px}.sr{position:absolute;clip:rect(0,0,0,0);height:1px;width:1px;overflow:hidden}.pill{border-radius:99px;font-size:.81rem;font-weight:700;padding:4px 9px;display:inline-block}.note{background:#f1f5f7;border-radius:9px;padding:11px;color:#425968;font-size:.86rem;margin-top:12px}.muted{opacity:.56}@media(max-width:500px){header{padding:22px 18px}main{padding:12px}.panel{padding:15px}.map{height:320px}.map-caption{font-size:11px}}
 
@@ -21,12 +21,12 @@ button,select{min-height:46px}a:focus-visible,select:focus-visible{outline:3px s
 
 .history-ctrl{display:flex;gap:10px;align-items:end;flex-wrap:wrap}.history-ctrl>div{flex:1;min-width:180px}.history-graph{width:100%;height:auto;border:1px solid #dce7ed;border-radius:10px;background:#fbfdff}.history-graph text{font:12px system-ui,sans-serif;fill:#49616e}.history-graph .axis{stroke:#c3d1d8;stroke-width:1}.history-graph .trend{stroke:#08688a;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}.history-graph .dot{fill:#08688a}.hist-summary{background:#eef5f8;border-radius:8px;padding:11px;margin:10px 0;font-size:.9rem;line-height:1.5}.hist-diagnostics{font-size:.82rem;color:#546876;overflow-wrap:anywhere}
 </style></head>
-<body><header><h1>🌿 Zaragoza Aire</h1><p>PWA v0.8.3 · Calidad del aire · Fuente municipal oficial</p></header><main>
+<body><header><h1>🌿 Zaragoza Aire</h1><p>PWA v0.9.1 · Calidad del aire · Fuente municipal oficial</p></header><main>
 <section class="panel"><div class="controls"><div><label for="station">Estación de medición</label><select id="station" disabled><option>Cargando estaciones…</option></select></div><button id="refresh" type="button">Actualizar datos</button><button id="installApp" type="button" hidden>Instalar aplicación</button></div><p id="stationsInfo"></p><div role="status" aria-live="polite" id="status" class="status">Conectando con el servicio del Ayuntamiento…</div><p class="meta" id="stationMeta"></p></section>
 <section class="panel"><h2>Mapa de estaciones sobre Zaragoza</h2><p class="meta">En «Estaciones» puedes seleccionar cualquiera de las ocho estaciones; en «Calles» puedes consultar el entorno de la estación seleccionada sobre el mapa oficial de OpenStreetMap.</p><div class="map-view-switch"><button type="button" id="viewStations" aria-pressed="true">Estaciones · interactivo</button><button type="button" id="viewStreets" aria-pressed="false">Calles · OpenStreetMap</button></div><div id="map" class="map" role="group" aria-label="Mapa de posición de las estaciones"><p class="empty" style="padding:20px">Cargando estaciones…</p></div><iframe id="streetMap" title="Mapa de calles de OpenStreetMap centrado en la estación seleccionada" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" hidden></iframe><div class="map-legend"><span><i class="mini-dot" style="background:#168250"></i>Muy bueno</span><span><i class="mini-dot" style="background:#69ae52"></i>Bueno</span><span><i class="mini-dot" style="background:#f3c94b"></i>Regular</span><span><i class="mini-dot" style="background:#ec8736"></i>Malo</span><span><i class="mini-dot" style="background:#bb4242"></i>Muy malo</span><span><i class="mini-dot" style="background:#87929b"></i>Sin indicador / sin datos</span></div><p id="mapMessage" role="status">Cargando cartografía de calles…</p><div class="map-actions"><div><button type="button" id="allStations">Ver todas</button><button type="button" id="centerStation">Centrar estación</button></div><a id="osmLink" href="https://www.openstreetmap.org/#map=12/41.65/-0.89" target="_blank" rel="noopener noreferrer">Abrir ubicación en OpenStreetMap ↗</a></div></section>
 <section class="panel"><h2>Indicador municipal de calidad del aire</h2><div id="quality" class="kpi"><div class="dot"></div><div><strong>Pendiente de datos</strong><p class="meta" style="margin:5px 0 0">No se calcula un índice independiente.</p></div></div><p class="note">Si la estación no dispone de observaciones recientes, se oculta su indicador para evitar presentar una situación antigua como actual. La categoría procede del icono publicado por la fuente municipal. La vista de calles necesita conexión a Internet; la vista de estaciones funciona sin descargar cartografía.</p></section>
 <section class="panel"><h2>Últimas mediciones disponibles</h2><p class="meta">Dato más reciente de cada contaminante. CO en mg/m³; otros contaminantes en µg/m³, según los metadatos habituales. Las observaciones pueden tener horas distintas.</p><div id="metrics" class="grid"><p class="empty">Todavía no hay mediciones disponibles.</p></div></section>
-<section class="panel" id="historicalPanel"><h2>Evolución de las últimas 24 horas</h2><p class="meta">Serie horaria oficial por estación. Solo se dibuja con 12 o más horas válidas; solo se calcula una media descriptiva con 18 o más horas válidas. Las ausencias no se interpolan. No se calculan índices, superaciones legales ni alertas sanitarias.</p><div class="history-ctrl"><div><label for="historyPollutant">Contaminante</label><select id="historyPollutant"><option value="5">O₃ · Ozono</option><option value="6">PM10 · Partículas</option></select></div><button id="loadHistory" type="button">Consultar evolución</button></div><p class="status" id="historyStatus" role="status" aria-live="polite">Selecciona una estación y pulsa «Consultar evolución». Inicialmente se ofrecen O₃ y PM10, cuyos códigos están documentados por el Ayuntamiento.</p><div id="historyResult"></div><details><summary>Fuente y diagnóstico de la serie horaria</summary><p class="hist-diagnostics" id="historyDiagnostics">API oficial: /sede/servicio/calidad-aire/estacion/horaria.json. Consulta bajo demanda, sin almacenar histórico.</p></details></section>
+<section class="panel" id="historicalPanel"><h2>Evolución de las últimas 24 horas</h2><p class="meta">Serie horaria municipal por estación y contaminante. Se utilizan las observaciones horarias fechadas de la API municipal; la disponibilidad varía por estación y contaminante. Solo se dibuja con 12 o más horas válidas; solo se calcula una media descriptiva con 18 o más horas válidas. Las ausencias no se interpolan. No se calculan índices, superaciones legales ni alertas sanitarias.</p><div class="history-ctrl"><div><label for="historyPollutant">Contaminante</label><select id="historyPollutant"><option value="5">O₃ · Ozono</option><option value="6">PM10 · Partículas</option><option value="NO2">NO₂ · Dióxido de nitrógeno</option><option value="SO2">SO₂ · Dióxido de azufre (sujeto a disponibilidad)</option><option value="PM2.5">PM2,5 · Partículas finas</option></select></div><button id="loadHistory" type="button">Consultar evolución</button></div><p class="status" id="historyStatus" role="status" aria-live="polite">Selecciona una estación y pulsa «Consultar evolución». La evolución se calcula exclusivamente a partir de observaciones con magnitud, fecha y valor verificados. Las estaciones sin registros de la magnitud seleccionada se muestran sin gráfica.</p><div id="historyResult"></div><details><summary>Fuente y diagnóstico de la serie horaria</summary><p class="hist-diagnostics" id="historyDiagnostics">API oficial: /sede/servicio/calidad-aire/estacion/horaria.json. Consulta bajo demanda, sin almacenar histórico.</p></details></section>
 <section class="panel" id="interpretGuide"><h2>Cómo interpretar las mediciones</h2><div class="interpret-intro"><strong>La clasificación oficial es la del Ayuntamiento.</strong> Las explicaciones de cada contaminante son orientativas; no sustituyen la información oficial ni representan alertas sanitarias. Una lectura puntual no se puede comparar directamente con una recomendación de 8 o 24 horas, ni sirve para determinar el cumplimiento de un límite anual o legal.</div><p class="interpret-note">Abre «Interpretar medición» dentro de cada tarjeta para conocer el contaminante y sus referencias. Se muestran por separado las recomendaciones de la OMS (2021), los valores de la UE anteriores al nuevo régimen y los valores previstos para 2030. Los límites legales incluyen reglas adicionales sobre promedios y número permitido de superaciones; esta aplicación no los evalúa.</p><p class="reference-links">Fuentes: <a href="https://www.who.int/es/news-room/questions-and-answers/item/who-global-air-quality-guidelines" target="_blank" rel="noopener noreferrer">OMS, directrices 2021</a> · <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32024L2881" target="_blank" rel="noopener noreferrer">Directiva (UE) 2024/2881, anexo I</a>.</p></section>
 <section class="panel"><h2>Fuente y diagnóstico</h2><p class="footer">Servicio: <a href="https://www.zaragoza.es/sede/servicio/calidad-aire/listado.json" target="_blank" rel="noopener noreferrer">API pública municipal de estaciones y observaciones</a>. Las mediciones son provisionales y no representan necesariamente la calidad del aire de cada calle. Los colores proceden de la clasificación publicada por el Ayuntamiento, no constituyen una alerta sanitaria emitida por esta aplicación.</p><details><summary>¿No funciona la conexión directa?</summary><p class="meta">Abre el enlace oficial, guarda el JSON y selecciónalo aquí para probar la interfaz sin servidor. El archivo se procesa localmente y no se envía a ningún sitio.</p><input id="jsonFile" type="file" accept=".json,application/json"></details><p class="footer" id="diagnostic"></p></section>
 </main>
@@ -114,6 +114,10 @@ async function load(){const button=$('refresh');button.disabled=true;setStatus('
 const hourlyEndpoint='https://www.zaragoza.es/sede/servicio/calidad-aire/estacion/horaria.json';
 let historicalRequest=0;
 const histStatus=(s,warn=false)=>{const e=$('historyStatus');e.textContent=s;e.className='status'+(warn?' warn':'');};
+const POLL_INFO={'5':{key:'O3',name:'O₃',unit:'µg/m³',verified:true},'6':{key:'PM10',name:'PM10',unit:'µg/m³',verified:true},'NO2':{key:'NO2',name:'NO₂',unit:'µg/m³',verified:false},'SO2':{key:'SO2',name:'SO₂',unit:'µg/m³',verified:false},'PM2.5':{key:'PM2.5',name:'PM2,5',unit:'µg/m³',verified:false}};
+function pollutantKey(v){return String(v??'').replace(/<[^>]*>/g,'').replace(/[^a-z0-9]/gi,'').toUpperCase();}
+function observationMatches(r,key){return r&&typeof r==='object'&&pollutantKey(r.magnitud??r.contaminante??r.pollutant??r.pollutantName)===pollutantKey(key);}
+
 function stationCode(s){const raw=s?.idSparql; if(raw!==null&&raw!==undefined&&/^\d+$/.test(String(raw).trim())) return String(raw).trim(); const href=String(s?.description??'').match(/[?&]estacion=(\d+)/);return href?href[1]:null;}
 function madridDay(dt){return new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit'}).format(dt);}
 function formatApiDay(dt){const bits=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(dt);const d=Object.fromEntries(bits.map(x=>[x.type,x.value]));return `${d.day}/${d.month}/${d.year}`;}
@@ -134,36 +138,37 @@ function recordValue(r){const v=r.valor??r.value??r.concentracion??r.medida??r.r
   const n=Number(typeof v==='string'?v.trim().replace(',','.'):v);return Number.isFinite(n)&&n>=0?n:null;
 }
 function getHourlyRecords(payload,poll){
- // Formato documentado en el servicio real: un objeto de estación con series
- // bajo claves O3, PM10, etc. A veces son cadenas JSON, incluso "[]".
- const key=String(poll)==='5'?'O3':String(poll)==='6'?'PM10':null;
+ const info=POLL_INFO[String(poll)];if(!info)throw new Error('Contaminante no reconocido.');
+ const key=info.key;
  const keys=payload && !Array.isArray(payload) && typeof payload==='object'?Object.keys(payload):[];
  const parseArray=(v)=>{
    if(Array.isArray(v))return v;
    if(typeof v==='string'){
-     const trimmed=v.trim();
-     if(!trimmed)return [];
-     try{const decoded=JSON.parse(trimmed);if(Array.isArray(decoded))return decoded;if(decoded && typeof decoded==='object' && Array.isArray(decoded.result))return decoded.result;}catch(_){/* no interpretar datos arbitrarios */}
+     const trimmed=v.trim();if(!trimmed)return [];
+     try{const decoded=JSON.parse(trimmed);if(Array.isArray(decoded))return decoded;if(decoded && typeof decoded==='object' && Array.isArray(decoded.result))return decoded.result;}catch(_){/* Respuesta no válida */}
    }
    return null;
  };
- // La respuesta municipal incluye la serie numérica O3/PM10 sin fechas,
- // pero observation contiene cada valor con publicationDate. Priorizar siempre
- // observation para no atribuir horas inventadas a los valores.
- if(key && Array.isArray(payload?.observation)){
-   const normalized=x=>String(x??'').replace(/<[^>]*>/g,'').replace(/[^a-z0-9]/gi,'').toUpperCase();
-   const observations=payload.observation.filter(r=>r&&typeof r==='object' &&
-       (!r.magnitud || normalized(r.magnitud)===normalized(key)));
-   if(observations.length){return {records:observations,format:'Observaciones horarias fechadas ('+key+')',keys};}
+ // Solo aceptamos observaciones con magnitud explícita y coincidente. Nunca
+ // asociamos por posición una serie numérica sin fechas ni magnitud verificable.
+ const observations=Array.isArray(payload?.observation)?payload.observation:[];
+ const matching=observations.filter(r=>observationMatches(r,key));
+ if(matching.length)return {records:matching,format:'Observaciones horarias fechadas ('+key+')',keys};
+ const field=Object.keys(payload??{}).find(k=>pollutantKey(k)===pollutantKey(key));
+ if(field){
+   const a=parseArray(payload[field]);
+   if(a===null)throw new Error('Serie '+key+' no contiene JSON de lista válido.');
+   const labeled=a.filter(r=>observationMatches(r,key));
+   if(labeled.length)return {records:labeled,format:'Registros etiquetados de '+key,keys};
+   // Para una magnitud sin observaciones, un array de valores carece de fecha
+   // y no puede producir una gráfica verificable.
+   return {records:[],format:'Campo '+key+' sin observaciones fechadas verificables',keys};
  }
- if(key && Object.prototype.hasOwnProperty.call(payload??{},key)){
-   const records=parseArray(payload[key]);
-   if(records===null)throw new Error('El campo '+key+' existe pero no contiene una lista JSON válida.');
-   return {records:records.flatMap(x=>Array.isArray(x.observation)?x.observation:[x]),format:'Serie por contaminante ('+key+')',keys};
- }
- const a=parseArray(payload)??parseArray(payload?.result)??parseArray(payload?.data)??parseArray(payload?.items)??parseArray(payload?.observation);
- if(a===null)throw new Error('Formato no reconocido. Campos de la respuesta: '+(keys.join(', ')||'(ninguno)'));
- return {records:a.flatMap(x=>Array.isArray(x.observation)?x.observation:[x]),format:'Listado general',keys};
+ const general=parseArray(payload)??parseArray(payload?.result)??parseArray(payload?.data)??parseArray(payload?.items);
+ if(general!==null){const expanded=general.flatMap(x=>Array.isArray(x.observation)?x.observation:[x]);return {records:expanded.filter(r=>observationMatches(r,key)),format:'Listado general filtrado ('+key+')',keys};}
+ if(observations.length)return {records:[],format:'Observaciones presentes pero no coinciden con '+key,keys};
+ if(payload&&typeof payload==='object'&&payload.status>=400)throw new Error('La API devuelve error '+payload.status+': '+String(payload.mensaje??'sin detalle'));
+ return {records:[],format:'Sin datos fechados reconocibles para '+key,keys};
 }
 function chartHourly(bins,unit){
  const W=760,H=268,L=56,R=18,T=20,B=44,usableH=H-T-B,usableW=W-L-R;
@@ -180,21 +185,40 @@ function chartHourly(bins,unit){
 }
 async function loadHistory(){
  const stamp=++historicalRequest,button=$('loadHistory');const station=stations[Number($('station').value)];
- const code=stationCode(station),poll=$('historyPollutant').value;
+ const code=stationCode(station),poll=$('historyPollutant').value,info=POLL_INFO[poll];
  $('historyResult').innerHTML='';
  if(!station || !code){histStatus('La estación no publica el identificador histórico idSparql requerido por la API municipal.',true);return;}
- button.disabled=true;histStatus('Consultando el histórico horario municipal…');
+ button.disabled=true;histStatus('Consultando el histórico horario municipal…'+(info&&!info.verified?' Consulta experimental, código no confirmado.':''));
  const now=new Date(),start=new Date(now.getTime()-48*36e5),end=new Date(now.getTime()+24*36e5);
  const args=new URLSearchParams({estacion:code,contaminante:poll,fechaInicio:formatApiDay(start),fechaFin:formatApiDay(end),rows:'150'});
  const url=hourlyEndpoint+'?'+args.toString();
  $('historyDiagnostics').textContent='Solicitud: '+url;
- const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),30000);
+ const requestJson=async(requestUrl)=>{
+   const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),30000);
+   try{
+     const response=await fetch(requestUrl,{cache:'no-store',headers:{Accept:'application/json'},signal:ctl.signal});
+     if(!response.ok)throw new Error('HTTP '+response.status);
+     return {payload:await response.json(),status:response.status};
+   }finally{clearTimeout(tm);}
+ };
+ let usedUrl=url,attemptNotes=[],responseStatus=0;
  try{
-  const response=await fetch(url,{cache:'no-store',headers:{Accept:'application/json'},signal:ctl.signal});
-  if(!response.ok)throw new Error('HTTP '+response.status);
-  const payload=await response.json(),series=getHourlyRecords(payload,poll),raw=series.records;
+  let result;
+  try{result=await requestJson(url);}
+  catch(initialError){
+    attemptNotes.push('Primera petición: '+String(initialError.message||initialError));
+    if(info.verified)throw initialError;
+    // Segunda petición: código numérico documentado de O3. La respuesta
+    // SOLO se usará si incluye la magnitud solicitada identificada y fechada.
+    const fallbackArgs=new URLSearchParams(args);fallbackArgs.set('contaminante','5');
+    usedUrl=hourlyEndpoint+'?'+fallbackArgs.toString();
+    result=await requestJson(usedUrl);
+    attemptNotes.push('Consulta alternativa con código documentado; requiere registros '+info.key+' explícitos.');
+  }
+  responseStatus=result.status;
+  const payload=result.payload,series=getHourlyRecords(payload,poll),raw=series.records;
   if(stamp!==historicalRequest)return;
-  if(raw.length===0){$('historyDiagnostics').textContent=`Petición: ${url} · HTTP ${response.status} · Formato: ${series.format} · Elementos de la serie: 0 · Campos de respuesta: ${series.keys.join(', ')}`;histStatus('La API ha respondido correctamente, pero no ofrece mediciones de '+(poll==='5'?'O₃':'PM10')+' para esta estación y período. No se dibuja gráfica.',true);return;}
+  if(raw.length===0){$('historyDiagnostics').textContent=`Petición: ${usedUrl} · HTTP ${responseStatus} · Formato: ${series.format} · Elementos de la serie: 0 · Campos de respuesta: ${series.keys.join(', ')} · Intentos: ${attemptNotes.join(' | ')||'uno'}`;histStatus('La estación no devuelve observaciones fechadas de '+info.name+' en la respuesta consultada. No se dibuja gráfica ni se calculan promedios.',true);return;}
   const cutoff=new Date(Math.floor(now.getTime()/36e5)*36e5-23*36e5); // 24 horas completas/hora actual
   const bins=Array.from({length:24},(_,i)=>{const t=new Date(cutoff.getTime()+i*36e5);return {time:t,value:null,label:localDate(t),short:new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',hour:'2-digit',hour12:false}).format(t)+' h'};});
   const matched=[];
@@ -202,12 +226,12 @@ async function loadHistory(){
     const h=Math.floor(d.getTime()/36e5)*36e5;const idx=Math.round((h-cutoff.getTime())/36e5);
     if(idx>=0&&idx<24){bins[idx].value=v;matched.push(r);}
   }
-  const valid=bins.filter(b=>b.value!==null).length,unit='µg/m³';
+  const valid=bins.filter(b=>b.value!==null).length,unit=info.unit;
   const timestamped=raw.map(recordTime).filter(Boolean);
   const newest=timestamped.length?new Date(Math.max(...timestamped.map(d=>d.getTime()))):null;
   const oldest=timestamped.length?new Date(Math.min(...timestamped.map(d=>d.getTime()))):null;
   const outdated=newest && now.getTime()-newest.getTime()>3*36e5;
-  $('historyDiagnostics').textContent=`Petición: ${url} · HTTP ${response.status} · Formato: ${series.format} · Registros recibidos: ${raw.length} · Fechas válidas: ${timestamped.length} · Mediciones reconocidas en la ventana: ${matched.length} · Horas cubiertas: ${valid}/24 · Primera fecha recibida: ${oldest?localDate(oldest):'ninguna'} · Última fecha recibida: ${newest?localDate(newest):'ninguna'}`;
+  $('historyDiagnostics').textContent=`Petición: ${usedUrl} · HTTP ${responseStatus} · Formato: ${series.format} · Registros recibidos: ${raw.length} · Fechas válidas: ${timestamped.length} · Mediciones reconocidas en la ventana: ${matched.length} · Horas cubiertas: ${valid}/24 · Primera fecha recibida: ${oldest?localDate(oldest):'ninguna'} · Última fecha recibida: ${newest?localDate(newest):'ninguna'} · Intentos: ${attemptNotes.join(' | ')||'uno'}`;
   if(!timestamped.length){histStatus('La API ha devuelto valores, pero no se han recibido fechas verificables para asociarlos a horas. No se dibuja gráfica.',true);return;}
   if(valid<12){histStatus(`Cobertura insuficiente: ${valid}/24 horas con medición válida.${outdated?' Última observación: '+localDate(newest)+' (datos desactualizados).':''} No se dibuja gráfica ni se calcula promedio.`,true);return;}
   let html=chartHourly(bins,unit);
@@ -215,10 +239,11 @@ async function loadHistory(){
   else html+=`<p class="hist-summary">Cobertura ${valid}/24: se muestra la evolución, pero no se calcula un promedio por faltar suficientes horas.</p>`;
   $('historyResult').innerHTML=html;
   histStatus(`Serie cargada: ${valid} de 24 horas con medición válida. Se mantienen visibles las horas sin datos.`);
- }catch(e){if(stamp!==historicalRequest)return;histStatus('No se ha podido obtener una serie histórica verificable: '+(e.name==='AbortError'?'la consulta superó los 30 segundos':e.message)+'. Las mediciones actuales no se ven afectadas.',true);}
- finally{clearTimeout(tm);if(stamp===historicalRequest)button.disabled=false;}
+ }catch(e){if(stamp!==historicalRequest)return;$('historyDiagnostics').textContent='Petición: '+usedUrl+' · Intentos: '+(attemptNotes.join(' | ')||'uno')+' · Error: '+String(e.message||e);histStatus('No se ha podido consultar la serie histórica: '+(e.name==='AbortError'?'la consulta superó los 30 segundos':e.message)+'. Las mediciones actuales no se ven afectadas.',true);}
+ finally{if(stamp===historicalRequest)button.disabled=false;}
 }
 $('loadHistory').addEventListener('click',loadHistory);
+$('historyPollutant').addEventListener('change',()=>{historicalRequest++;$('historyResult').innerHTML='';$('loadHistory').disabled=false;histStatus('Contaminante modificado. Pulsa «Consultar evolución» para solicitar la serie.');});
 $('station').addEventListener('change',()=>{historicalRequest++;$('historyResult').innerHTML='';$('loadHistory').disabled=false;histStatus('Estación modificada. Pulsa «Consultar evolución» para cargar su serie horaria.');});
 
 $('viewStations').addEventListener('click',()=>showMapMode(false));$('viewStreets').addEventListener('click',()=>showMapMode(true));$('allStations').addEventListener('click',fitAll);$('centerStation').addEventListener('click',centerSelected);$('station').addEventListener('change',render);$('refresh').addEventListener('click',load);$('jsonFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{consume(JSON.parse(await f.text()),'archivo JSON local',stations[Number($('station').value)]?.id);}catch(err){setStatus('No se ha podido leer el archivo: '+err.message,'error');}});load();

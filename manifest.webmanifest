@@ -2,7 +2,6 @@
   "id": "./",
   "name": "Zaragoza Aire — Calidad del aire",
   "short_name": "Zaragoza Aire",
-  "description": "Consulta por estaciones de la calidad del aire en Zaragoza con datos municipales.",
   "lang": "es",
   "start_url": "./",
   "scope": "./",

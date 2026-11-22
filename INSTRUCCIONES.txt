@@ -1,0 +1,11 @@
+ZARAGOZA AIRE PWA v0.9.1 — PRUEBA LOCAL, NO PUBLICAR TODAVÍA
+
+1. Descomprime el ZIP en una carpeta nueva y abre index.html en Microsoft Edge.
+2. Espera a que se carguen las estaciones. Selecciona Actur.
+3. Prueba O3 y PM10 como regresión; después NO2 y PM2,5.
+4. Para SO2, si no hay observaciones fechadas de esa magnitud, debe mostrarse ausencia de datos; no se fabrican valores.
+5. En Fuente y diagnóstico consulta URL usada, respuesta y número de horas cubiertas.
+6. La versión v0.8.3 publicada en GitHub permanece intacta.
+
+La consulta histórica usa exclusivamente registros observation con publicationDate, magnitud y value; admite una consulta alternativa si falla la primera para magnitudes sin código histórico confirmado, pero NO usa datos de una magnitud distinta.
+Gráfica: 12/24 h; media descriptiva: 18/24 h. No es evaluación de límites legales.
