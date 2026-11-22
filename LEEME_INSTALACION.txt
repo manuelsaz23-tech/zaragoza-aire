@@ -1,16 +1,20 @@
-ZARAGOZA AIRE — PWA v0.7 — Interpretar mediciones
+ZARAGOZA AIRE — PWA v0.8 · Incremento experimental
 
-BASELINE: v0.6.2 aceptada, preservada sin cambios.
-ALCANCE: información contextual por contaminante (OMS 2021 y Directiva UE 2024/2881). No calcula índices ni promedios nuevos, no emite alertas, no cambia mapa ni API.
+Origen: v0.7 funcionalmente aceptada.
 
-PUBLICACIÓN EN GITHUB PAGES:
-1. Guardar copia de v0.6.2 antes de actualizar.
-2. Subir TODOS los archivos de este ZIP a la RAÍZ del repositorio, sustituyendo los de igual nombre: index.html, sw.js, manifest.webmanifest, icon-192.png e icon-512.png.
-3. Esperar al despliegue de GitHub Pages y recargar la PWA. El nuevo service worker cambia la caché a v0.7.
-4. Probar Edge y Chrome Android: estaciones, consulta API, mapas, centrar estación, vista sin datos Renovales y tarjetas «Interpretar medición».
+Novedad: consulta bajo demanda de histórico horario para O3 (código 5) y PM10 (código 6), códigos documentados expresamente en el catálogo municipal.
 
-REFERENCIAS:
-OMS 2021: https://www.who.int/es/news-room/questions-and-answers/item/who-global-air-quality-guidelines
-UE 2024/2881 anexo I: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32024L2881
+La estructura exacta de respuestas actuales de la API histórica no ha podido verificarse desde el entorno de construcción. La v0.8 NO está aceptada: se necesita probarla en Edge antes de publicarla. La consulta de históricos podría fallar por CORS, por el formato del JSON, por campos de fecha o por falta de datos. No se inventan gráficas.
 
-PRECAUCIÓN: Los valores OMS y UE tienen periodos de promedio y condiciones de cómputo diferentes. La v0.7 no evalúa cumplimiento ni alertas a partir de observaciones puntuales.
+Para publicar, sustituir los seis archivos en la raíz de GitHub Pages. Primero probar en entorno local HTTPS/localhost o sitio de ensayo, para preservar la v0.7 estable.
+
+Criterios: 12/24 horas para gráfica, 18/24 para media descriptiva. Huecos no interpolados. Sin comparación normativa ni alerta sanitaria.
+
+Validaciones: sintaxis JS, estructura HTML y ZIP. No se ha podido probar una respuesta real del servicio horario.
+
+CORRECCIÓN v0.8.3: la API horaria requiere idSparql (p.ej. Actur=40), no id de listado (Actur=12). Se conserva v0.7 publicada hasta validación de esta versión.
+
+CAMBIO v0.8.3: El lector histórico reconoce las series por contaminante (O3, PM10), incluidas las listas JSON serializadas en texto. Distingue series vacías de respuestas con estructura desconocida.
+Esta versión sigue siendo EXPERIMENTAL, no sustituir v0.7 publicada hasta validar en Edge.
+
+CORRECCION v0.8.3: los registros fechados se leen desde observation; O3 y PM10 son series de valores sin marcas de tiempo. El diagnostico informa de la fecha mas reciente y de la cobertura real.
