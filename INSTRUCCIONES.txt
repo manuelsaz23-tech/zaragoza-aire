@@ -1,11 +1,9 @@
-ZARAGOZA AIRE PWA v0.9.1 — PRUEBA LOCAL, NO PUBLICAR TODAVÍA
+ZARAGOZA AIRE v0.9.3 — CORRECCIÓN DEL MAPA ÚNICO
 
-1. Descomprime el ZIP en una carpeta nueva y abre index.html en Microsoft Edge.
-2. Espera a que se carguen las estaciones. Selecciona Actur.
-3. Prueba O3 y PM10 como regresión; después NO2 y PM2,5.
-4. Para SO2, si no hay observaciones fechadas de esa magnitud, debe mostrarse ausencia de datos; no se fabrican valores.
-5. En Fuente y diagnóstico consulta URL usada, respuesta y número de horas cubiertas.
-6. La versión v0.8.3 publicada en GitHub permanece intacta.
+Corrección puntual sobre v0.9.2: la regla CSS general .map svg estiraba todos los SVG generados por Leaflet. Ahora solo se aplica al SVG del plano de respaldo, conservando los marcadores Leaflet y la atribución en su tamaño normal.
 
-La consulta histórica usa exclusivamente registros observation con publicationDate, magnitud y value; admite una consulta alternativa si falla la primera para magnitudes sin código histórico confirmado, pero NO usa datos de una magnitud distinta.
-Gráfica: 12/24 h; media descriptiva: 18/24 h. No es evaluación de límites legales.
+No modifica consultas API, historiales, clasificación ni arquitectura.
+
+PRUEBA LOCAL: descomprimir, abrir PowerShell en esta carpeta y ejecutar py -m http.server 8000; abrir http://localhost:8000/ en Edge. Comprobar que se ven 8 marcadores, que la bandera azul/amarilla no invade el mapa y que funcionan selección, centrar, ver todas y gráficas.
+
+NO subir a GitHub hasta aceptación del usuario. v0.9.1 permanece estable publicada.
