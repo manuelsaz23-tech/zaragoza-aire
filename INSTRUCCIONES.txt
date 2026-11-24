@@ -1,9 +1,23 @@
-ZARAGOZA AIRE v0.9.3 — CORRECCIÓN DEL MAPA ÚNICO
+ZARAGOZA AIRE — v1.0 RC1 (24/11/2026)
+Candidata a versión 1.0. NO PUBLICADA. Baseline protegida: v0.9.3, commit 1e44cc7db4e2006e1bad1332dda0cb9315b66a64.
 
-Corrección puntual sobre v0.9.2: la regla CSS general .map svg estiraba todos los SVG generados por Leaflet. Ahora solo se aplica al SVG del plano de respaldo, conservando los marcadores Leaflet y la atribución en su tamaño normal.
+ALCANCE
+ROB-01: 30 s por intento, incluido el procesamiento del cuerpo de la respuesta.
+ROB-02: un segundo intento de la consulta inicial ante timeout, error de red o HTTP 408/500/502/503/504, con pausa de 1,5 s. No se repite 404, 403, 429 ni JSON inválido. Histórico: se mantiene la consulta alternativa ya existente para códigos no confirmados; para códigos verificados se admite un reintento transitorio.
+ROB-03: una única copia local (localStorage) de la última respuesta de catálogo válida, con fecha de descarga. No se almacenan históricos ni importaciones manuales. En caso de fallo se muestran los datos conservados como NO verificados en directo, con marcadores neutros; no se inventan datos. Existe opción de borrar la copia. La copia se limita a cada origen web, navegador y dispositivo.
+ROB-04: estado de conexión separado del estado de estación, diagnóstico y antigüedad. Se oculta la clasificación al superar tres horas sin una medición reciente. Se normalizan etiquetas de contaminantes. El histórico se invalida al cambiar de estación o contaminante y al actualizar el catálogo.
+ROB-05: ajustes móviles de controles, etiquetas y tamaños; restaurado el elemento informativo de instalación que faltaba. Se mantienen mapa único, referencias OMS/UE y reglas de cobertura 12/24 y 18/24.
+ROB-06: 21 controles ejecutados en Chromium con red y almacenamiento simulados, históricos reales aportados de Actur, catálogo de dos estaciones de prueba y reloj controlado. Ver informe de pruebas independiente.
 
-No modifica consultas API, historiales, clasificación ni arquitectura.
+DECISIONES Y LIMITACIONES
+Se interpreta una fecha municipal sin zona horaria explícita como hora de Europa/Madrid (hora peninsular); esta convención deberá contrastarse con la fuente si se publica información distinta. Las horas ambiguas o inexistentes por cambio de hora se descartan cuando carecen de offset. Se respetan fechas que sí traen offset. Sin servidor externo ni alertas sanitarias. La copia local no sustituye la consulta oficial y no certifica calidad del aire actual.
+No se ha verificado en esta ejecución el acceso real a API, teselas, service worker ni instalación en teléfono. Las pruebas Chromium se realizaron en documento aislado porque localhost está bloqueado en el entorno de construcción. No se valida con ellas la disponibilidad real de las ocho estaciones ni la cartografía de calles.
 
-PRUEBA LOCAL: descomprimir, abrir PowerShell en esta carpeta y ejecutar py -m http.server 8000; abrir http://localhost:8000/ en Edge. Comprobar que se ven 8 marcadores, que la bandera azul/amarilla no invade el mapa y que funcionan selección, centrar, ver todas y gráficas.
-
-NO subir a GitHub hasta aceptación del usuario. v0.9.1 permanece estable publicada.
+PRUEBA LOCAL EN EDGE
+1. Descomprimir los seis archivos en una carpeta nueva. Abrir PowerShell en esa carpeta.
+2. Ejecutar: py -m http.server 8001
+3. Abrir http://localhost:8001/ . El puerto distinto evita mezclar la caché de pruebas anteriores.
+4. Comprobar que aparece v1.0 RC1, que hay estaciones y mapa real, selección/centrado/ver todas, interpretación y gráficos.
+5. Tras una consulta correcta, probar sin conexión (por ejemplo, F12 > Red > Offline), pulsar Actualizar datos y comprobar que se conservan los datos y el aviso, sin clasificación actual. Volver a Online, actualizar y comprobar recuperación.
+6. Confirmar que al cambiar de estación desde el mapa desaparece la gráfica anterior. Probar O3, PM10, NO2 y PM2.5 en Actur cuando haya datos.
+7. Para detener el servidor local: Ctrl+C en PowerShell. No subir archivos a GitHub aún. Tras aceptación, publicar de forma coordinada y comprobar Edge HTTPS y Android.
