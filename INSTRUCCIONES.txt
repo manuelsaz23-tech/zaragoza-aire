@@ -1,5 +1,5 @@
-ZARAGOZA AIRE — v1.0 RC1 (24/11/2026)
-Candidata a versión 1.0. NO PUBLICADA. Baseline protegida: v0.9.3, commit 1e44cc7db4e2006e1bad1332dda0cb9315b66a64.
+ZARAGOZA AIRE — v1.0 definitiva (24/11/2026)
+Versión autorizada para publicación por el usuario tras validar las cinco comprobaciones de RC1 en Edge y Android. Baseline funcional: v1.0 RC1, commit 9bbcd8c72b7f7fdcdf32fbe9bdf7dc5549f2bb43. La versión definitiva solo modifica la denominación y la clave de caché; conserva el código funcional.
 
 ALCANCE
 ROB-01: 30 s por intento, incluido el procesamiento del cuerpo de la respuesta.
@@ -11,13 +11,13 @@ ROB-06: 21 controles ejecutados en Chromium con red y almacenamiento simulados, 
 
 DECISIONES Y LIMITACIONES
 Se interpreta una fecha municipal sin zona horaria explícita como hora de Europa/Madrid (hora peninsular); esta convención deberá contrastarse con la fuente si se publica información distinta. Las horas ambiguas o inexistentes por cambio de hora se descartan cuando carecen de offset. Se respetan fechas que sí traen offset. Sin servidor externo ni alertas sanitarias. La copia local no sustituye la consulta oficial y no certifica calidad del aire actual.
-No se ha verificado en esta ejecución el acceso real a API, teselas, service worker ni instalación en teléfono. Las pruebas Chromium se realizaron en documento aislado porque localhost está bloqueado en el entorno de construcción. No se valida con ellas la disponibilidad real de las ocho estaciones ni la cartografía de calles.
+En la construcción de RC1 no se verificó directamente el acceso real a API, teselas, service worker ni instalación en teléfono. Posteriormente el usuario confirmó las pruebas de RC1 publicada en Edge y Android. Las pruebas Chromium se realizaron en documento aislado porque localhost está bloqueado en el entorno de construcción. No se valida con ellas la disponibilidad real de las ocho estaciones ni la cartografía de calles.
 
 PRUEBA LOCAL EN EDGE
 1. Descomprimir los seis archivos en una carpeta nueva. Abrir PowerShell en esa carpeta.
 2. Ejecutar: py -m http.server 8001
 3. Abrir http://localhost:8001/ . El puerto distinto evita mezclar la caché de pruebas anteriores.
-4. Comprobar que aparece v1.0 RC1, que hay estaciones y mapa real, selección/centrado/ver todas, interpretación y gráficos.
+4. Comprobar que aparece v1.0, que hay estaciones y mapa real, selección/centrado/ver todas, interpretación y gráficos.
 5. Tras una consulta correcta, probar sin conexión (por ejemplo, F12 > Red > Offline), pulsar Actualizar datos y comprobar que se conservan los datos y el aviso, sin clasificación actual. Volver a Online, actualizar y comprobar recuperación.
 6. Confirmar que al cambiar de estación desde el mapa desaparece la gráfica anterior. Probar O3, PM10, NO2 y PM2.5 en Actur cuando haya datos.
-7. Para detener el servidor local: Ctrl+C en PowerShell. No subir archivos a GitHub aún. Tras aceptación, publicar de forma coordinada y comprobar Edge HTTPS y Android.
+7. Para detener el servidor local: Ctrl+C en PowerShell. Para comprobar una actualización publicada, abrir la URL HTTPS en Edge y desde el icono de Android. Si aparece una versión anterior, cerrar y reabrir la aplicación con conexión.

@@ -1,20 +1,10 @@
-ZARAGOZA AIRE — PWA v0.8 · Incremento experimental
+ZARAGOZA AIRE — PWA v1.0
 
-Origen: v0.7 funcionalmente aceptada.
+Aplicación estable autorizada para publicación el 24/11/2026 tras la validación funcional de v1.0 RC1 en Edge y Android. No requiere servidor propio ni cuentas de usuario.
 
-Novedad: consulta bajo demanda de histórico horario para O3 (código 5) y PM10 (código 6), códigos documentados expresamente en el catálogo municipal.
+ACCESO: https://manuelsaz23-tech.github.io/zaragoza-aire/
+Android: abrir en Chrome, menú > Instalar aplicación o Añadir a pantalla de inicio; abrir desde su icono. Edge: abrir la URL HTTPS; puede instalarse desde el menú de aplicaciones del navegador. Si ya está instalada, cerrar y volver a abrir con conexión para recibir la actualización. Verificar que el encabezado indica v1.0.
 
-La estructura exacta de respuestas actuales de la API histórica no ha podido verificarse desde el entorno de construcción. La v0.8 NO está aceptada: se necesita probarla en Edge antes de publicarla. La consulta de históricos podría fallar por CORS, por el formato del JSON, por campos de fecha o por falta de datos. No se inventan gráficas.
+FUNCIONES: catálogo de estaciones municipales, mapa único OpenStreetMap/Leaflet, mediciones, interpretación OMS/UE y series horarias de contaminantes disponibles. Si falla la API, puede mostrarse la última copia local, expresamente no verificada como actual. Las referencias sanitarias no son alertas ni certificaciones de cumplimiento legal. La cartografía y los datos en directo requieren conexión.
 
-Para publicar, sustituir los seis archivos en la raíz de GitHub Pages. Primero probar en entorno local HTTPS/localhost o sitio de ensayo, para preservar la v0.7 estable.
-
-Criterios: 12/24 horas para gráfica, 18/24 para media descriptiva. Huecos no interpolados. Sin comparación normativa ni alerta sanitaria.
-
-Validaciones: sintaxis JS, estructura HTML y ZIP. No se ha podido probar una respuesta real del servicio horario.
-
-CORRECCIÓN v0.8.3: la API horaria requiere idSparql (p.ej. Actur=40), no id de listado (Actur=12). Se conserva v0.7 publicada hasta validación de esta versión.
-
-CAMBIO v0.8.3: El lector histórico reconoce las series por contaminante (O3, PM10), incluidas las listas JSON serializadas en texto. Distingue series vacías de respuestas con estructura desconocida.
-Esta versión sigue siendo EXPERIMENTAL, no sustituir v0.7 publicada hasta validar en Edge.
-
-CORRECCION v0.8.3: los registros fechados se leen desde observation; O3 y PM10 son series de valores sin marcas de tiempo. El diagnostico informa de la fecha mas reciente y de la cobertura real.
+Consultar INSTRUCCIONES.txt para detalles técnicos, limitaciones y pruebas. El historial de Git conserva las versiones anteriores. La instalación en iOS no forma parte de la validación realizada.
